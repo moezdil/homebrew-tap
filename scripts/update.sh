@@ -2,7 +2,7 @@
 # Renders Formula/siltide.rb from the newest siltide release: a stable release
 # when one exists, otherwise the newest pre-release from main.
 set -eu
-repo=mesutoezdil/siltide
+repo=moezdil/siltide
 tag=$(gh api "repos/$repo/releases" --jq '[.[] | select(.draft | not) | select(.prerelease | not)][0].tag_name // empty')
 [ -n "$tag" ] || tag=$(gh api "repos/$repo/releases" --jq '[.[] | select(.draft | not)][0].tag_name')
 version=${tag#v}
